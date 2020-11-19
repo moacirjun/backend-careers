@@ -12,8 +12,8 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ~/data/init.sql:/docker-entrypoint-initdb.d/init.sql
-      - ~/data/mysql:/var/lib/mysql
+      - ./Docker/data/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./Docker/data/mysql:/var/lib/mysql
 
   php-fpm:
     build:
