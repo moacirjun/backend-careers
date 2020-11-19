@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+{% block title %}Create A Job{% endblock %}
+
+{% block body %}
+    {{ form_start(form, {'action': path('save_job'), 'method': 'POST'}) }}
+        {{ form_row(form.title) }}
+        {{ form_row(form.description) }}
+        {{ form_row(form.status) }}
+        {{ form_row(form.salary) }}
+        <hr>
+
+        {{ form_row(form.workplace.province) }}
+        {{ form_row(form.workplace.city) }}
+        {{ form_row(form.workplace.street) }}
+        <button>Criar</button>
+    {{ form_end(form) }}
+{% endblock %}

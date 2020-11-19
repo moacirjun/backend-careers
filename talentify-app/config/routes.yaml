@@ -1,3 +1,18 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+create_job:
+    path: /admin/jobs/create
+    methods: [GET]
+    controller: App\Controller\JobController::create
+
+create_job_success:
+    path: /admin/jobs/create-sucess
+    methods: [GET]
+    controller: App\Controller\JobController::createSuccess
+
+save_job:
+    path: /admin/jobs/create
+    methods: [POST]
+    controller: App\Controller\JobController::save
