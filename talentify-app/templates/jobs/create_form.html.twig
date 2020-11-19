@@ -2,11 +2,14 @@
 {% block title %}Create A Job{% endblock %}
 
 {% block body %}
+    <h1>Create New Jobs</h1>
+
     {{ form_start(form, {'action': path('save_job'), 'method': 'POST'}) }}
         {{ form_row(form.title) }}
         {{ form_row(form.description) }}
         {{ form_row(form.status) }}
         {{ form_row(form.salary) }}
+        
         <hr>
 
         {{ form_row(form.workplace.province) }}

@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+{% block title %}Job Done!{% endblock %}
+
+{% block body %}
+    <h1>Visible Jobs</h1>
+    {% for job in jobs %}
+        <h2>{{ job.title }}</h2>
+        <h3>{{ job.description }}</h3>
+        <p><strong>US$<strong>{{ job.salary|number_format(2, '.', ',') }}</strong></p>
+        <p>
+            Workplace
+            <ul>
+                <li>{{ job.workplace.province }}</li>
+                <li>{{ job.workplace.city }}</li>
+                <li>{{ job.workplace.street }}</li>
+            </ul>
+        </p>
+        <hr>
+    {% else %}
+        {{ 'Nenhuma vaga cadastrada!' }}
+    {% endfor %}
+{% endblock %}
