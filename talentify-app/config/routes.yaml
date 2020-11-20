@@ -24,6 +24,14 @@ api_job_list_opened:
     controller: App\Controller\Rest\JobController::listOpenedJobs
 
 api_job_create:
-    path: /api/jobs
+    path: /api/admin/jobs
     methods: [POST]
     controller: App\Controller\Rest\JobController::save
+
+api_login_check:
+    path: /api/login_check
+
+api_user_register:
+    path: /api/register
+    methods: [POST]
+    controller: App\Controller\Rest\AuthController::register
