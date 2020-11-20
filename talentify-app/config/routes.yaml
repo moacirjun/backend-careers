@@ -1,6 +1,6 @@
 index:
-   path: /
-   controller: App\Controller\DefaultController::index
+    path: /
+    controller: App\Controller\DefaultController::index
 
 create_job:
     path: /admin/jobs/create
@@ -16,3 +16,14 @@ save_job:
     path: /admin/jobs/create
     methods: [POST]
     controller: App\Controller\JobController::save
+
+############### API ROUTES ###############
+api_job_list_opened:
+    path: /api/jobs
+    methods: [GET]
+    controller: App\Controller\Rest\JobController::listOpenedJobs
+
+api_job_create:
+    path: /api/jobs
+    methods: [POST]
+    controller: App\Controller\Rest\JobController::save
