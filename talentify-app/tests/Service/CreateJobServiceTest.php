@@ -4,6 +4,7 @@ namespace App\Tests\Service;
 
 use App\Entity\Job;
 use App\Entity\JobInterface;
+use App\Repository\JobRepository;
 use App\Service\CreateJobService;
 use InvalidArgumentException;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
@@ -93,7 +94,7 @@ class CreateJobServiceTest extends KernelTestCase
 
     public function testFullfiledJob()
     {
-        $this->job->setTitle('title');
+        $this->job->setTitle('title-123123-test');
         $this->job->setDescription('desc');
         $this->job->setStatus(JobInterface::STATUS_VISIBLE);
         $this->job->setWorkplace(['postcode' => 12312312, 'number' => 123]);
@@ -106,8 +107,9 @@ class CreateJobServiceTest extends KernelTestCase
 
         $this->service->create($this->job);
 
+        /** @var JobRepository $repository */
         $repository = $em->getRepository(Job::class);
-        $createdJob = $repository->find(1);
+        $createdJob = $repository->findOneBy(['title' => 'title-123123-test']);
         
         $this->assertEquals($this->job->getTitle(), $createdJob->getTitle());
         $this->assertEquals($this->job->getDescription(), $createdJob->getDescription());
